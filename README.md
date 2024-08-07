@@ -3,7 +3,10 @@
 In the software deployment process, security plays a crucial role in helping the system avoid common security vulnerabilities that traditional systems often encounter. These security vulnerabilities affect the quality of software products, create bad user experiences, and increase the time to market. In this repository, I will introduce and guide the use of several tools to detect security vulnerabilities from both the development and operation perspectives. I will use Docker to build these security scanning tools, aiming for easy usage without directly installing them on the server. This makes it easy to integrate these tools into the pipeline for quick usage.
 
 ### Snyk
-<img src="[Imgur](https://imgur.com/BbAvD6P)">
+<div style="text-align: center;">
+  <img src="./image/Snyk-vs-MergeBase.png" alt="Image" style="width: 70%; max-width: 1000px;">
+</div>
+
 Snyk is a developer security platform that helps detect and fix security vulnerabilities in applications. Here are some highlights about Snyk:
 
 #### Vulnerability Detection:
@@ -38,7 +41,9 @@ docker cp snyk_container:/app/$SNYK_FILE.html .
 After the command is completed, you will receive an HTML formatted result file. You can save this result for fixing and remediating security vulnerabilities in your source code.
 
 ### Trivy
-<img src="https://imgur.com/BbAvD6P">
+<div style="text-align: center;">
+  <img src="./image/anhtrivy.png" alt="Image" style="width: 70%; max-width: 1000px;">
+</div>
 Trivy is a popular open-source tool for scanning security vulnerabilities in applications, containers, and infrastructure. Developed by Aqua Security, Trivy helps developers and security administrators ensure the safety of their application environment. Here are some highlights about Trivy:
 
 #### Vulnerability Detection:
@@ -73,7 +78,9 @@ In this guide, I focus on Trivy's Docker image scanning feature. After scanning 
 docker run --rm -v $(pwd):/${CI_PROJECT_NAME} -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy image --format template --template "@contrib/html.tpl" --output /${CI_PROJECT_NAME}/report_${DOCKER_TAGS}.html ${YOUR_DOCKER_IMAGE}:${TAG}
 ```
 ### Arachni
-<img src="https://www.google.com/imgres?q=arachni%20web%20scanner&imgurl=https%3A%2F%2Fwww.mdpi.com%2Fcomputers%2Fcomputers-12-00235%2Farticle_deploy%2Fhtml%2Fimages%2Fcomputers-12-00235-g001.png&imgrefurl=https%3A%2F%2Fwww.mdpi.com%2F2073-431X%2F12%2F11%2F235&docid=XtVKInMmESx3_M&tbnid=PdIxXVTWj5zWxM&vet=12ahUKEwiUmcn71eKHAxVKs1YBHSLNHqkQM3oECG8QAA..i&w=4433&h=1869&hcb=2&ved=2ahUKEwiUmcn71eKHAxVKs1YBHSLNHqkQM3oECG8QAA">
+<div style="text-align: center;">
+  <img src="./image/about-arachni.png" alt="Image" style="width: 70%; max-width: 1000px;">
+</div>
 Arachni is a powerful and comprehensive open-source web application security scanner designed to help detect and remediate security vulnerabilities. Here are some highlights about Arachni:
 
 #### Vulnerability Detection:
