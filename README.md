@@ -73,7 +73,7 @@ In this guide, I focus on Trivy's Docker image scanning feature. After scanning 
 docker run --rm -v $(pwd):/${CI_PROJECT_NAME} -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy image --format template --template "@contrib/html.tpl" --output /${CI_PROJECT_NAME}/report_${DOCKER_TAGS}.html ${YOUR_DOCKER_IMAGE}:${TAG}
 ```
 ### Arachni
-<img src="https://imgur.com/2TMDzvU">
+<img src="https://www.google.com/imgres?q=arachni%20web%20scanner&imgurl=https%3A%2F%2Fwww.mdpi.com%2Fcomputers%2Fcomputers-12-00235%2Farticle_deploy%2Fhtml%2Fimages%2Fcomputers-12-00235-g001.png&imgrefurl=https%3A%2F%2Fwww.mdpi.com%2F2073-431X%2F12%2F11%2F235&docid=XtVKInMmESx3_M&tbnid=PdIxXVTWj5zWxM&vet=12ahUKEwiUmcn71eKHAxVKs1YBHSLNHqkQM3oECG8QAA..i&w=4433&h=1869&hcb=2&ved=2ahUKEwiUmcn71eKHAxVKs1YBHSLNHqkQM3oECG8QAA">
 Arachni is a powerful and comprehensive open-source web application security scanner designed to help detect and remediate security vulnerabilities. Here are some highlights about Arachni:
 
 #### Vulnerability Detection:
