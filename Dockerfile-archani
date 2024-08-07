@@ -1,0 +1,9 @@
+FROM ubuntu:latest
+
+RUN apt update && apt install -y wget tar && rm -rf /var/lib/apt/lists/*
+
+RUN wget https://github.com/Arachni/arachni/releases/download/v1.4/arachni-1.4-0.5.10-linux-x86_64.tar.gz && tar -xvf arachni-1.4-0.5.10-linux-x86_64.tar.gz && rm arachni-1.4-0.5.10-linux-x86_64.tar.gz
+
+WORKDIR /arachni-1.4-0.5.10
+
+CMD ["bin/arachni"]
