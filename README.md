@@ -29,9 +29,11 @@ Snyk is a developer security platform that helps detect and fix security vulnera
 Snyk is used by many companies and organizations to ensure their applications are safe from potential security threats. It helps integrate security into the software development process easily and effectively.
 
 To integrate this tool into the DevSecOps pipeline, you need to define the values of the variables `YOUR_AUTH_TOKEN`, `SNYK_OUTPUTFILE`, `DOCKER_TAGS` and run the following commands in your pipeline:
-- `docker build --rm --network host --build-arg SNYK_AUTH_TOKEN=$YOUR_AUTH_TOKEN --build-arg OUTPUT_FILENAME=$SNYK_OUTPUTFILE -t snyk_images_${DOCKER_TAGS} -f Dockerfile_snyk .`
-- `docker create --name snyk_container snyk_images_${DOCKER_TAGS}`
-- `docker cp snyk_container:/app/$SNYK_FILE.html .`
+```sh
+docker build --rm --network host --build-arg SNYK_AUTH_TOKEN=$YOUR_AUTH_TOKEN --build-arg OUTPUT_FILENAME=$SNYK_OUTPUTFILE -t snyk_images_${DOCKER_TAGS} -f Dockerfile_snyk .
+docker create --name snyk_container snyk_images_${DOCKER_TAGS}
+docker cp snyk_container:/app/$SNYK_FILE.html .
+```
 
 After the command is completed, you will receive an HTML formatted result file. You can save this result for fixing and remediating security vulnerabilities in your source code.
 
@@ -67,8 +69,9 @@ Trivy is a powerful and flexible tool that helps developers and security adminis
 
 In this guide, I focus on Trivy's Docker image scanning feature. After scanning the source code and packaging it in a Docker image, to ensure the Docker image is safe, you should use Trivy to scan and early detect potential threats to your infrastructure. The Trivy provider has created a Docker image that is publicly available on Dockerhub. You can pull it and integrate it into your pipeline easily with the command below. You need to define the values `CI_PROJECT_NAME`, `YOUR_DOCKER_IMAGE`, `TAG`. Trivy will return the scan result of the container `${YOUR_DOCKER_IMAGE}:${TAG}`.
 
-- `docker run --rm -v $(pwd):/${CI_PROJECT_NAME} -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy image --format template --template "@contrib/html.tpl" --output /${CI_PROJECT_NAME}/report_${DOCKER_TAGS}.html ${YOUR_DOCKER_IMAGE}:${TAG}`
-
+```sh
+docker run --rm -v $(pwd):/${CI_PROJECT_NAME} -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy image --format template --template "@contrib/html.tpl" --output /${CI_PROJECT_NAME}/report_${DOCKER_TAGS}.html ${YOUR_DOCKER_IMAGE}:${TAG}
+```
 ### Arachni
 
 Arachni is a powerful and comprehensive open-source web application security scanner designed to help detect and remediate security vulnerabilities. Here are some highlights about Arachni:
@@ -104,9 +107,13 @@ Arachni is a comprehensive and flexible web application security scanner suitabl
 
 To use Arachni, you need to build `Dockerfile-arachni`:
 
-- `docker build -t arachni:v1.4-0.5.10 -f Dockerfile-arachni .`
+```sh
+docker build -t arachni:v1.4-0.5.10 -f Dockerfile-arachni .
+```
 
 After successfully building on the server, you can push it to a Docker registry for reuse when you want to use Arachni on other servers. To integrate Arachni into the pipeline, you need to set the following commands in your pipeline:
 
-- `docker run --rm -v /tmp/:/tmp/ arachni:v1.4-0.5.10 bin/arachni --output-verbose --scope-include-subdomains $YOUR_URL --report-save-path=/tmp/scan.afr`
-- `docker run --rm -v /tmp/:/tmp arachni:v1.4-0.5.10 bin/arachni_reporter /tmp/scan.afr --reporter=html:outfile=/tmp/scan.html.zip`
+```sh
+docker run --rm -v /tmp/:/tmp/ arachni:v1.4-0.5.10 bin/arachni --output-verbose --scope-include-subdomains $YOUR_URL --report-save-path=/tmp/scan.afr
+docker run --rm -v /tmp/:/tmp arachni:v1.4-0.5.10 bin/arachni_reporter /tmp/scan.afr --reporter=html:outfile=/tmp/scan.html.zip
+```
