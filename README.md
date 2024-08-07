@@ -3,7 +3,7 @@
 In the software deployment process, security plays a crucial role in helping the system avoid common security vulnerabilities that traditional systems often encounter. These security vulnerabilities affect the quality of software products, create bad user experiences, and increase the time to market. In this repository, I will introduce and guide the use of several tools to detect security vulnerabilities from both the development and operation perspectives. I will use Docker to build these security scanning tools, aiming for easy usage without directly installing them on the server. This makes it easy to integrate these tools into the pipeline for quick usage.
 
 ### Snyk
-<img src="https://imgur.com/yZZdw5Q">
+<img src="[Imgur](https://imgur.com/BbAvD6P)">
 Snyk is a developer security platform that helps detect and fix security vulnerabilities in applications. Here are some highlights about Snyk:
 
 #### Vulnerability Detection:
