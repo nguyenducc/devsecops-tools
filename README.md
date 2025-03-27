@@ -124,3 +124,6 @@ After successfully building on the server, you can push it to a Docker registry 
 docker run --rm -v /tmp/:/tmp/ arachni:v1.4-0.5.10 bin/arachni --output-verbose --scope-include-subdomains $YOUR_URL --report-save-path=/tmp/scan.afr
 docker run --rm -v /tmp/:/tmp arachni:v1.4-0.5.10 bin/arachni_reporter /tmp/scan.afr --reporter=html:outfile=/tmp/scan.html.zip
 ```
+
+
+https://github.com/user-attachments/assets/14ee2e57-0c6d-427a-9f8a-f28f18609d2a
