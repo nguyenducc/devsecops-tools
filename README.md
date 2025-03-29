@@ -127,3 +127,7 @@ docker run --rm -v /tmp/:/tmp arachni:v1.4-0.5.10 bin/arachni_reporter /tmp/scan
 
 
 https://github.com/user-attachments/assets/14ee2e57-0c6d-427a-9f8a-f28f18609d2a
+
+
+https://github.com/user-attachments/assets/3aae98c0-c7ba-48f2-966e-d577aa57722f
+
