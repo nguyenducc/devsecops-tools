@@ -10,7 +10,7 @@ Velero is composed of two main components:
 Velero is built on a controller-based architecture. It defines each operation (backup, restore, etc.) as a Custom Resource (CR), which is stored in etcd. Velero controllers watch and act upon these resources.
 
 <p align="center">
-  <img src="./images/backup-process.png" alt="Image" style="width: 100%; max-width: 1000px;">
+  <img src="./image/backup-process.png" alt="Image" style="width: 100%; max-width: 1000px;">
 </p>
 
 ## Supported Operations
