@@ -46,6 +46,7 @@ sudo sed -i '/ swap / s/^/#/' /etc/fstab
 
 ## 3. Cài đặt Kubespray v1.28 (version mới nhất hiện tại) tương ứng release 2.24
 ### 1. Cài ansible 2.14+ cho node master.
+
 Theo tài liệu chính thức của kubespray thì cần cài version ansible version 2.14 trở lên để tương thích với kubespray v1.28.
 Ở đây lựa chọn node master-01 làm master node mặc định và bước này chỉ thao tác trên node master.
 
@@ -58,11 +59,11 @@ Theo tài liệu chính thức để cài đặt và sử dụng Ansible thì c�
 apt install git python3 python3-pip -y
 ```
 
-<div style="page-break-after: always;"></div>
 ### 1. Clone source code của Kubespray:
 ```sh
 git clone https://github.com/kubernetes-sigs/kubespray.git -b release-2.24
 ```
+
 Cài đặt Ansible:
 **Cách 1: sử dụng ppa**
 ```sh
