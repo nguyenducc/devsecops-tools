@@ -59,7 +59,10 @@ apt install git python3 python3-pip -y
 ```
 
 <div style="page-break-after: always;"></div>
-
+### 1. Clone source code của Kubespray:
+```sh
+git clone https://github.com/kubernetes-sigs/kubespray.git -b release-2.24
+```
 Cài đặt Ansible:
 **Cách 1: sử dụng ppa**
 ```sh
@@ -111,11 +114,8 @@ Kiểm tra xem đã ssh vào user root không cần password thành công chưa:
 ```sh
 ssh root@192.168.56.112
 ```
-### 3. Clone source code của Kubespray:
-```sh
-git clone https://github.com/kubernetes-sigs/kubespray.git -b release-2.24
-```
-### 4. Setup cụm K8S
+
+### 3. Setup cụm K8S
 ```sh
 cd kubespray/
 cp -rfp inventory/sample inventory/mycluster
